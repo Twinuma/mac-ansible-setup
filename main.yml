@@ -1,7 +1,7 @@
 ---
 - name: Mac Setup
   # https://docs.ansible.com/ansible/latest/user_guide/playbooks_delegation.html#local-playbooks
-  hosts: 127.0.0.1
+  hosts: localhost
   connection: local
   # https://docs.ansible.com/ansible/latest/user_guide/become.html#id1
   # become: yes
@@ -14,19 +14,21 @@
       - clipy
       - docker
       - firefox
-      - google-chrome
-      - google-japanese-ime
-      - google-hangouts
       - iterm2
       - licecap
       - snip
       - visual-studio-code
       - atom
       - boostnote
-      - chatWork
       - cyberduck
       - dbeaver
       - dropbox
+      - line
+      - gyazo
+      - iina
+      - slack
+      - flux
+      - station
     brew_packages:
       - autoconf
       - awscli
@@ -47,7 +49,7 @@
       - zsh-syntax-highlighting
       - zsh-completions
       - brew-cask-completion
-      - brew-file
+      # - brew-file
       - git-flow
       - git-secrets
       - go
@@ -59,12 +61,12 @@
       - tmux
       - vim
       - watch
-  # pre_tasks:
-    ## https://brew.sh/
-    # - name: Install Homebrew
-    #   command: '/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"'
-
-  tasks:
+      - pwgen
+      - hub
+      - qt
+      - rbenv
+      - ruby-build
+tasks:
     # https://docs.ansible.com/ansible/2.7/modules/homebrew_tap_module.html
     - name: Homebrew tap
       homebrew_tap:
